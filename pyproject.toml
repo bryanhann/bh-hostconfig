@@ -1,5 +1,5 @@
 [project]
-version = "0.1.1" # bh.bump: this line must be first.
+version = "0.1.1-b0" # bh.bump: this line must be first.
 name = "bh-hostconfig"
 description = "Add your description here"
 readme = "README.md"
