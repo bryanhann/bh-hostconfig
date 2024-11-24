@@ -26,13 +26,19 @@ _install () {
      log "_install: $1 is at [$(which $1)]"
 }
 
-log "++ outer [$0] [$*]"
+log "++ repo setup [$0] [$*]"
 run export BASE=$1
 run cd $(dirname $0)
 run export REPO=${PWD}
 log "BASE is ${BASE}"
 log "REPO is ${REPO}"
-run cd $REPO/install.d
-log "outer: PWD is [${PWD}]"
-run . setup.sh
-log "-- outer [$0] [$*]"
+log "PWD is [$PWD]"
+log "tilde is [~]"
+log "HOME is [$HOME]"
+log "BASE is [$BASE]"
+run sudo apt -f install
+_install stow
+_install mcrypt
+_install gh
+_install expect
+log "-- repo setup [$0] [$*]"
