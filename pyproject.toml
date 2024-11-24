@@ -1,7 +1,7 @@
 [project]
 version = "0.1.1-b0" # bh.bump: this line must be first.
 name = "bh-hostconfig"
-description = "Add your description here"
+description = "Configure a cloud host after installation."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
