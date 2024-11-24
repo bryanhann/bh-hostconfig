@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-
-BASE=/INSTALL
+INSTALL=/INSTALL
 LOG=/INSTALL/install.log
-sudo mkdir -p ${BASE}
+sudo mkdir -p ${INSTALL}
 sudo touch $LOG
 sudo chmod 777 $LOG
 
@@ -28,7 +27,12 @@ _install () {
 }
 
 log "++ outer [$0] [$*]"
+run export BASE=$1
 run cd $(dirname $0)
-log "outer: CWD is [${PWD}]"
-run . ./install.d/setup.sh
+run export REPO=${PWD}
+log "BASE is ${BASE}"
+log "REPO is ${REPO}"
+run cd $REPO/install.d
+log "outer: PWD is [${PWD}]"
+run . setup.sh
 log "-- outer [$0] [$*]"

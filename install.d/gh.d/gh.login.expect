@@ -1,0 +1,41 @@
+#!/usr/bin/env expect
+set token [lindex $argv 0]
+spawn gh auth login
+
+expect "What account"
+send -- "\n"
+
+expect "What is your preferred"
+send -- "\n"
+expect "How"
+send -- "\033\[B\n"
+
+expect "Tip"
+send -- "$token\n"
+interact
+exit
+expect "Generate"
+send -- "Y\n"
+
+expect "xEnter"
+send -- "\n"
+
+interact
+exit
+expect "Generate"
+send -- "\n"
+exit
+expect "Enter"
+send -- "\n"
+expect "How"
+exit
+send -- "\n"
+exit
+exit
+expect "You're already"
+send -- "y\n"
+interact
+#send -- "bryanhann/$name\n"
+#interact
+#expect bar
+ ~               
