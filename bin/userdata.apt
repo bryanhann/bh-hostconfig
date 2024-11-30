@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+_init () {
+    run sudo apt upgrade -y
+    run sudo apt update -y
+    run sudo apt -f install
+}
+_install () {
+    run sudo apt install $1 -y
+}

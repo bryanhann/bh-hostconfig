@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# user-data set the following:
+# install -- the installation root, typically [/INSTALL]
+# repo    -- the location of this repo, typically [/INSTALL/repo]
+# logfile -- the installation logfile, typically [/INSTALL/install.log]
+
+: ${install:=/INSTALL}
+: ${logfile:=${install}/install2.log}
+
+sudo mkdir -p install
+sudo touch ${logfile}
+sudo chmod 777 ${logfile}
+
+now () { echo $(date '+%Y-%m-%d-t-%H:%M:%S') ;       }
+log () { echo $(now) : "$@" >> ${logfile}    ;       }
+run () { log "running: [$*]"                 ; $*  ; }
+
+log "++[$0] [$*]"
+log "[\$PWD]==[$PWD] [\$\$]==[$$] [\$PPID]==[$PPID]"
+run cd $(dirname $0)
+log "[\$PWD]==[$PWD]"
+log "adding [${PWD}] to PATH"
+export PATH=${PATH}:${repo}/bin
+[ -f $0.$* ] || log "cannot source [$0.$1]. Aborting."
+[ -f $0.$* ] || exit
+run . $0.$*
+_init
+_install stow
+_install mcrypt
+_install gh
+_install expect
+_install python3
+_install curl
+_install tasksel
+_install slim
+_install Ubuntu-desktop
+_install tigervnc-standalone-server
+_install rpm
+_install dnf
+log "--[$0] [$*]"

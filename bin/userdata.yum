@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+_init () {
+    run sudo yum upgrade -y
+    run sudo yum update -y
+}
+_install() {
+    run sudo yum install $1 -y
+}
+
