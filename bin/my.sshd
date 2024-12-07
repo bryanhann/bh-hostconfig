@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+my.log "++[$0] [$*]"
+my.log fixing /etc/ssh/sshd_config : PasswordAuthentication yes
+sed -i 's/.*PasswordAuthentication.*/PasswordAuthentication yes # bch/' /etc/ssh/sshd_config
+my.log fixing /etc/ssh/sshd_config : KbdInteractiveAuthentication yes
+sed -i 's/.*KbdInteractiveAuthentication.*/KbdInteractiveAuthentication yes # bch/' /etc/ssh/sshd_config
+my.run sudo systemctl restart ssh
+my.run sudo systemctl restart sshd
+my.log "--[$0] [$*]"
+

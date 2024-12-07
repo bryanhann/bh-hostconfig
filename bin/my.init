@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+my.run sudo apt upgrade -y
+my.run sudo apt update -y
+my.run sudo apt -f install

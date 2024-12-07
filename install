@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+cd $(dirname $0)
+export bashrc=/etc/bash.bashrc
+#export bashrc=/INSTALL/bashrc
+export mybin=${PWD}/bin
+
+# add mybin to PATH here
+which my.magic || echo not on path
+which my.magic || PATH=${PATH}:${mybin}
+which my.magic && echo on path
+
+my.log "++[$0] [$*]"
+my.log "[\$PWD]==[$PWD] [\$\$]==[$$] [\$PPID]==[$PPID]"
+my.bashrc
+[ -f ${PWD}/install.d/$1 ] && run ${PWD}/install.d/"$@"
+my.log "--[$0] [$*]"

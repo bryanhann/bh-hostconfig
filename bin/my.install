@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+my.run sudo apt install $1 -y

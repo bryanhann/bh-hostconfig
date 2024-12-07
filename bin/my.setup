@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+ls $(my.bin)/setup.d
+

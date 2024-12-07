@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+my.run sudo adduser $1
+my.run sudo usermod -aG sudo $1

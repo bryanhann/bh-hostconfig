@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+my.log "++[$0] [$*]"
+my.run my.bashrc
+my.run my.adduser bozo
+my.run my.sshd
+my.run my.init
+my.run my.install xfce4
+my.run my.install xfce4-goodies
+my.run my.install tightvncserver
+my.log "--[$0] [$*]"

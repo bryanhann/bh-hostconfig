@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+_log "++[$0] [$*]"
+_log "[\$PWD]==[$PWD] [\$\$]==[$$] [\$PPID]==[$PPID]"
+_run cd $(dirname $0)
+_log "[\$PWD]==[$PWD]"
+_log "adding [${PWD}] to PATH"
+export PATH=${PATH}:${repo}/bin
+[ -f $0.$* ] || log "cannot source [$0.$1]. Aborting."
+[ -f $0.$* ] || exit
+run . $0.$*
+_init
+_install stow
+_install mcrypt
+_install gh
+_install expect
+_install python3
+_install curl
+_install tasksel
+_install slim
+_install Ubuntu-desktop
+_install tigervnc-standalone-server
+_install rpm
+_install dnf
+log "--[$0] [$*]"

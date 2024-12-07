@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+LOGFILE=/var/log/log.bh.install
+
+sudo touch $LOGFILE
+sudo chmod 777 $LOGFILE
+
+now () { echo $(date '+%Y-%m-%d-t-%H:%M:%S') ;       }
+
+[ $1. == . ] && cat $LOGFILE
+[ $1. == . ] && exit
+
+echo $(now) : "$@" >> ${LOGFILE}

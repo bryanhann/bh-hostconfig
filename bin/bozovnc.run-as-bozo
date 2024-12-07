@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+tightvncserver
+echo 'startxfce4 &' >> ~/.vnc/xtartup
+tightvncserver :1
